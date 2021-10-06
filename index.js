@@ -1,34 +1,35 @@
 
 const express = require('express')
 const app = express()
+const port = 1337;
+const path = require('path')
 
-app.set('port', 1337)
+//USE
+app.use(express.static(path.join(__dirname, 'public')))
 
-app.listen(
-    //GET
-     app.get('/hello/:name', 
-     (req, res) => res.send("Hello " + req.params.name)), 
-    () => console.log(`server listening on ${app.get('port')}`) 
-/*     app.get(
-        '/hello/:name', 
-        (req, res) => res.send("Hello " + req.params.name)
-    ) */
+//LISTEN
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+});
 
+//GET
+app.get(
+    '/hello/:name', 
+    (req, res) => res.render('hello.ejs', {name: req.params.name})
 )
 
+app.get('/metrics.json', async (req, res) => {
+    const data = await metrics.list()
+    res.status(200).json(data)
+})
 
 
-/* app.post('/', (req, res) => {
-    // POST
-})
-  
-app
-.put('/', function (req, res) {
-    // PUT
-})
-.delete('/', (req, res) => {
-    // DELETE
-}) */
+//SET
+app.set('port', port)
+app.set('views', __dirname + "/views")
+app.set('view engine', 'ejs');
+
+
 
 
 
