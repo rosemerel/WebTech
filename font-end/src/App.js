@@ -13,12 +13,12 @@ const styles = {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#565E71',
+    backgroundColor: '#183152',
     padding: '50px',
   },
   header: {
     height: '60px',
-    backgroundColor: 'rgba(255,255,255,.3)',
+    backgroundColor: '#375D81',
     flexShrink: 0,
   },
   headerLogIn: {
@@ -28,16 +28,17 @@ const styles = {
     backgroundColor: 'blue',
   },
   footer: {
-    height: '30px',
-    backgroundColor: 'rgba(255,255,255,.3)',
+    height: '40px',
+    backgroundColor: '#375D81',
     flexShrink: 0,
   },
   main: {
-    backgroundColor: '#373B44',
+    backgroundColor: '#ABC8E2',
     flex: '1 1 auto',
     display: 'flex',
     flexDirection: 'row',
     overflow: 'hidden',
+    color: '#183152',
   },
   channels: {
     minWidth: '200px',
@@ -78,13 +79,14 @@ const styles = {
     marginRight: '.5rem'
   },
   send: {
-    backgroundColor: '#D6DDEC',
+    backgroundColor: '#183152',
     padding: '.2rem .5rem',
     border: 'none',
+    color:'white',
     ':hover': {
       backgroundColor: '#2A4B99',
       cursor: 'pointer',
-      color: '#fff',
+      color: '#183152',
     },
   },
   
@@ -182,9 +184,9 @@ export default () => {
 
   return (
     <div className="App" style={styles.root}>
-      <Header styles={styles}/>
-      <Main addMessage={addMessage} messages={messages} channel={channel} styles={styles}/>
-      <Footer styles={styles}/>
+        <Header styles={styles}/>
+        <Main addMessage={addMessage} messages={messages} channel={channel} styles={styles}/>
+        <Footer styles={styles}/>
     </div>
   );
 }
