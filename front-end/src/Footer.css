@@ -1,0 +1,11 @@
+
+.App-footer {
+    border-radius: 0px 0px 20px 20px;
+    height: '70px';
+    background-Color: rgba(255,255,255,.3);
+    flex-Shrink: 0;
+}
+
+.App-footer p {
+    margin-left: 10px;
+}
