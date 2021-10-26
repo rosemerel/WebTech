@@ -15,9 +15,7 @@ const styles = {
   }
 }
 
-export default ({
-  onChannel
-}) => {
+export default ({onChannel, props}) => {
   const [channels, setChannels] = useState([])
   useEffect( () => {
     const fetch = async () => {
@@ -26,21 +24,39 @@ export default ({
     }
     fetch()
   }, [])
+
   return (
     <ul style={styles.root}>
-      { channels.map( (channel, i) => (
-        <li key={i} css={styles.channel}>
-          <Link
-            href="#"
-            onClick={ (e) => {
-              e.preventDefault()
-              onChannel(channel)
-            }}
-            >
-            {channel.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    { channels.map( (channel, i) => (
+      <li key={i} css={styles.channel}>
+        <Link
+          href="#"
+          onClick={ (e) => {
+            e.preventDefault()
+            onChannel(channel)
+          }}
+          >
+          {channel.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
   );
 }
+/*
+    <ul style={styles.root}>
+    { channels.map( (channel, i) => (
+      <li key={i} css={styles.channel}>
+        <Link
+          href="#"
+          onClick={ (e) => {
+            e.preventDefault()
+            onChannel(channel)
+          }}
+          >
+          {channel.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+*/

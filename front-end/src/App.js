@@ -13,8 +13,6 @@ const styles = {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#565E71',
-    padding: '50px',
   },
 }
 
@@ -22,11 +20,11 @@ export default () => {
   const [user, setUser] = useState(null)
   return (
     <div className="App" css={styles.root}>
-      <Header />
+      {/* <Header /> */}
       {
         user ? <Main /> : <Login onUser={setUser} />
       }
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
