@@ -1,16 +1,18 @@
-import './App.css';
-import './Footer.css'
-/** @jsx jsx */
-import { jsx } from '@emotion/core'
 
-var moment = require('moment');
-var date = moment().format('MMMM Do YYYY, h:mm:ss a');
+/** @jsxImportSource @emotion/react */
 
+const styles = {
+  footer: {
+    height: '30px',
+    backgroundColor: 'rgba(255,255,255,.3)',
+    flexShrink: 0,
+  },
+}
 
-export default () => {
+export default function Footer() {
   return (
-    <footer className="App-footer">
-      <p> {date} </p>
+    <footer style={styles.footer}>
+      footer
     </footer>
   );
 }

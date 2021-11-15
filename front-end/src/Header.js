@@ -1,11 +1,13 @@
-import './App.css';
-import './Header.css';
-/** @jsx jsx */
-import { jsx } from '@emotion/core'
 
-const styles = {
+/** @jsxImportSource @emotion/react */
+// Layout
+import { useTheme } from '@mui/styles';
+import {IconButton} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+
+const useStyles = (theme) => ({
   header: {
-    height: '60px',
+    padding: theme.spacing(1),
     backgroundColor: 'rgba(255,255,255,.3)',
     flexShrink: 0,
   },
@@ -15,12 +17,31 @@ const styles = {
   headerLogOut: {
     backgroundColor: 'blue',
   },
-}
+  menu: {
+    [theme.breakpoints.up('sm')]: {
+      display: 'none !important',
+    },
+  }
+})
 
-export default () => {
+export default function Header({
+  drawerToggleListener
+}) {
+  const styles = useStyles(useTheme())
+  const handleDrawerToggle = (e) => {
+    drawerToggleListener()
+  }
   return (
-    <header className="App-header" css={styles.header}>
-      <h1>Welcome on our chat application</h1>
+    <header css={styles.header}>
+      <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        onClick={handleDrawerToggle}
+        css={styles.menu}
+      >
+        <MenuIcon />
+      </IconButton>
+      Header
     </header>
   );
 }
